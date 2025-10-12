@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linguify – Pronunciation Detector</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-500 to-purple-600 min-h-screen flex items-center justify-center">
+  <div class="bg-white rounded-2xl shadow-2xl p-10 w-full max-w-lg text-center">
+    <h1 class="text-3xl font-bold text-gray-800 mb-4">🎤 Linguify</h1>
+    <p class="text-gray-600 mb-6">Practice and perfect your pronunciation in real-time.</p>
+    <div class="mb-6">
+      <input id="targetWord" type="text" value="hello" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"/>
+      <p class="text-sm text-gray-500 mt-2">Enter a word to practice</p>
+    </div>
+    <div class="flex justify-center gap-4 mb-6">
+      <button onclick="playWord()" class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600">🔊 Listen</button>
+      <button onclick="startRecognition()" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">🎙️ Speak</button>
+    </div>
+    <div id="result" class="text-lg font-semibold text-gray-700"></div>
+    <div id="score" class="mt-2 text-sm text-gray-500"></div>
+    <div id="feedback" class="mt-4 p-4 rounded-lg bg-blue-50 text-blue-800 font-medium"></div>
+  </div>
+<script>
+// Stats tracking
+let totalAttempts = 0;
+let correctAttempts = 0;
+
+function playWord(){
+  let word = document.getElementById('targetWord').value;
+  let utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = 'en-US';
+  speechSynthesis.speak(utterance);
+}
+function similarity(a, b){
+  const matrix = [];
+  for(let i=0;i<=b.length;i++){ matrix[i] = [i]; }
+  for(let j=0;j<=a.length;j++){ matrix[0][j] = j; }
+  for(let i=1;i<=b.length;i++){
+    for(let j=1;j<=a.length;j++){
+      if(b.charAt(i-1)==a.charAt(j-1)){
+        matrix[i][j] = matrix[i-1][j-1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i-1][j-1]+1,
+          matrix[i][j-1]+1,
+          matrix[i-1][j]+1
+        );
+      }
+    }
+  }
+  let distance = matrix[b.length][a.length];
+  let maxLen = Math.max(a.length, b.length);
+  return ((maxLen-distance)/maxLen)*100;
+}
+function startRecognition(){
+  const target = document.getElementById('targetWord').value.toLowerCase();
+  let resultDiv = document.getElementById('result');
+  let scoreDiv = document.getElementById('score');
+  let feedbackDiv = document.getElementById('feedback');
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SpeechRecognition){
+    alert("Speech Recognition not supported in this browser.");
+    return;
+  }
+  let recognition = new SpeechRecognition();
+  recognition.lang = 'en-US';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+  recognition.start();
+  recognition.onresult = function(event){
+    const spoken = event.results[0][0].transcript.toLowerCase();
+    resultDiv.innerHTML = `You said: <b>${spoken}</b>`;
+    let score = similarity(target, spoken).toFixed(1);
+    scoreDiv.innerHTML = `Similarity Score: ${score}%`;
+
+    // Feedback stats
+    totalAttempts++;
+    if (spoken === target) correctAttempts++;
+    let correctPercent = (correctAttempts / totalAttempts) * 100;
+
+    feedbackDiv.innerHTML = `Text Correct: <b>${correctPercent.toFixed(1)}%</b> (${correctAttempts} out of ${totalAttempts} attempts)`;
+  };
+  recognition.onerror = function(event){
+    resultDiv.innerHTML = "Error: " + event.error;
+    scoreDiv.innerHTML = "";
+  };
+}
+</script>
+</body>
+</html>
