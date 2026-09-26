@@ -48,3 +48,7 @@ Feedback:-
 ✓ Excellent pronunciation
 ✓ Clear articulation
 ✓ Good speech fluency
+
+## Author:
+Pragya Mishra
+B.tech CSE
