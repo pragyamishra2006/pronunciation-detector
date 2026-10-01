@@ -27,17 +27,17 @@ How It Works:-
 -A pronunciation score and feedback are generated.
 
 Use Cases:-
-English language learning
-Interview preparation
-Public speaking practice
-Accent and pronunciation improvement
-Educational applications
-Future Enhancements
-AI-powered pronunciation coaching
-Multi-language support
-Phoneme-level error detection
-Personalized learning recommendations
-Progress tracking dashboard
+-> English language learning
+-> Interview preparation
+-> Public speaking practice
+-> Accent and pronunciation improvement
+-> Educational applications
+-> Future Enhancements
+-> AI-powered pronunciation coaching
+-> Multi-language support
+-> Phoneme-level error detection
+-> Personalized learning recommendations
+-> Progress tracking dashboard
 
 Sample Output:-
 Target Sentence: "Artificial Intelligence is transforming the world."
