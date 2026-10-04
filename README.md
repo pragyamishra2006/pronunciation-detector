@@ -3,13 +3,13 @@
 A smart pronunciation analysis application that helps users improve their spoken English by comparing their speech with the correct pronunciation. The app uses speech recognition and audio processing techniques to evaluate pronunciation accuracy and provide instant feedback.
 
 ## Features:-
-🎤 Real-time voice recording
-🔊 Speech-to-text conversion
-📖 Pronunciation accuracy analysis
-✅ Correct and incorrect word detection
-📊 Pronunciation score generation
-📝 Detailed feedback for improvement
-🌐 User-friendly interface
+🎤 Real-time voice recording.
+🔊 Speech-to-text conversion.
+📖 Pronunciation accuracy analysis.
+✅ Correct and incorrect word detection.
+📊 Pronunciation score generation.
+📝 Detailed feedback for improvement.
+🌐 User-friendly interface.
 
 ## Technologies Used:-
 1. Python
