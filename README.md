@@ -1,5 +1,4 @@
 ## Pronunciation Detection App 🎙️
-
 A smart pronunciation analysis application that helps users improve their spoken English by comparing their speech with the correct pronunciation. The app uses speech recognition and audio processing techniques to evaluate pronunciation accuracy and provide instant feedback.
 
 ## Features:-
@@ -43,6 +42,7 @@ A smart pronunciation analysis application that helps users improve their spoken
 Target Sentence: "Artificial Intelligence is transforming the world."
 Recognized Speech: "Artificial Intelligence is transforming the world."
 Pronunciation Score: 95%
+Precision: 95%
 
 ## Feedback:-
 ✓ Excellent pronunciation
