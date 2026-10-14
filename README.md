@@ -1,6 +1,7 @@
 ## Pronunciation Detection App 🎙️
 A smart pronunciation analysis application that helps users improve their spoken English by comparing their speech with the correct pronunciation. The app uses speech recognition and audio processing techniques to evaluate pronunciation accuracy and provide instant feedback.
 
+
 ## Features:-
 🎤 Real-time voice recording.
 🔊 Speech-to-text conversion.
@@ -10,6 +11,7 @@ A smart pronunciation analysis application that helps users improve their spoken
 📝 Detailed feedback for improvement.
 🌐 User-friendly interface.
 
+
 ## Technologies Used:-
 1. Python
 2. SpeechRecognition
@@ -18,12 +20,14 @@ A smart pronunciation analysis application that helps users improve their spoken
 5. Machine Learning (optional)
 6. Tkinter / Flask (depending on implementation)
 
+
 ## How It Works:-
 -User enters or selects a target word/sentence.
 -The application records the user's speech.
 -Speech is converted into text using speech recognition.
 -The recognized output is compared with the expected pronunciation/text.
 -A pronunciation score and feedback are generated.
+
 
 ## Use Cases:-
 -> English language learning
@@ -38,16 +42,19 @@ A smart pronunciation analysis application that helps users improve their spoken
 -> Personalized learning recommendations
 -> Progress tracking dashboard
 
+
 ## Sample Output:-
 Target Sentence: "Artificial Intelligence is transforming the world."
 Recognized Speech: "Artificial Intelligence is transforming the world."
 Pronunciation Score: 95%
 Precision: 95%
 
+
 ## Feedback:-
 ✓ Excellent pronunciation
 ✓ Clear articulation
 ✓ Good speech fluency
+
 
 ## Author:
 Pragya Mishra
