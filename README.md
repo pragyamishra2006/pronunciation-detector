@@ -53,7 +53,6 @@ Precision: 95%
 ## Feedback:-
 ✓ Excellent pronunciation
 ✓ Clear articulation
-✓ Good speech fluency
 
 
 ## Author:
